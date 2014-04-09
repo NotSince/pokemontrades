@@ -12,7 +12,6 @@ Directory Layout:
 
 	├── <MMSearch>/
 	│   ├── README.md
-	│   ├── README.txt
 	│   ├── mmsrch.py
 
 Prerequisites
