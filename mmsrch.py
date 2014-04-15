@@ -10,9 +10,10 @@ import re
 import sys
 import getpass
 
-r = praw.Reddit(user_agent='Rash_Bot')
-subreddit = r.get_subreddit('pokemontrades') # Remember to set subreddit!
+subr = raw_input('Enter the subreddit to search under ~You must be a moderator~:')
 
+r = praw.Reddit(user_agent='Rash_Bot')
+subreddit = r.get_subreddit(subr) # Prompts for subreddit!
 
 def log_in():
         uname = raw_input('Enter your Moderator Username: ')
