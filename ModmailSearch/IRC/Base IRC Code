@@ -1,0 +1,29 @@
+import socket
+ 
+network = 'irc.synirc.net'
+port = 6667
+irc = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
+irc.connect ( ( network, port ) )
+print irc.recv ( 4096 )
+irc.send ( 'NICK MMS_Bot\r\n' )
+irc.send ( 'USER MMS_Bot MMS_Bot MMS_Bot :Python IRC\r\n' )
+irc.send ( 'JOIN #pokemontrades\r\n' )
+irc.send ( 'PRIVMSG #pokemontrades :Hello World.\r\n' )
+while True:
+   data = irc.recv ( 4096 )
+   if data.find ( 'PING' ) != -1:
+      irc.send ( 'PONG ' + data.split() [ 1 ] + '\r\n' )
+   if data.find ( '!MMS_Bot quit' ) != -1:
+      irc.send ( 'PRIVMSG #pokemontrades :Fine, if you dont want me\r\n' )
+      irc.send ( 'QUIT\r\n' )
+   if data.find ( 'hi MMS_Bot' ) != -1:
+      irc.send ( 'PRIVMSG #pokemontrades :I already said hi...\r\n' )
+   if data.find ( 'hello MMS_Bot' ) != -1:
+      irc.send ( 'PRIVMSG #pokemontrades :I already said hi...\r\n' )
+   if data.find ( 'KICK' ) != -1:
+      irc.send ( 'JOIN #pokemontrades\r\n' )
+   if data.find ( 'cheese' ) != -1:
+      irc.send ( 'PRIVMSG #pokemontrades :WHERE!!!!!!\r\n' )
+   if data.find ( 'slaps MMS_Bot' ) != -1:
+      irc.send ( 'PRIVMSG #pokemontrades :This is the Trout Protection Agency. Please put the Trout Down and walk away with your hands in the air.\r\n' )
+   print data
