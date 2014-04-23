@@ -3,7 +3,29 @@ import praw
 import re
 import sys
 
- 
+def modmail_search(username):
+
+   r = praw.Reddit(user_agent='Rash_Bot')
+   subreddit = r.get_subreddit('pokemontrades') 
+
+   searchlist = []
+   
+   try:
+      r.login('Porygon-Bot', 'password')
+      print 'Logged in succesfully\n'
+   except:
+      print 'Invalid username or password\n'
+
+   for message in subreddit.get_mod_mail(limit=10000):
+      if str(message.author) == username:
+         listitem = 'http://en.reddit.com/message/messages/' + message.id
+         print(listitem)
+         searchlist.append(listitem)
+
+   searchresults = ', '.join(searchlist)
+   
+   return searchresults
+
 network = 'irc.synirc.net'
 port = 6667
 irc = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
@@ -34,33 +56,4 @@ while True:
    if data.find ( 'slaps MMS_Bot' ) != -1:
       irc.send ( 'PRIVMSG #pkmntrades4mods :This is the Trout Protection Agency. Please put the Trout Down and walk away with your hands in the air.\r\n' )
    print data
-
-def modmail_search(username):
-
-   r = praw.Reddit(user_agent='Rash_Bot')
-   subreddit = r.get_subreddit('pokemontrades') 
-
-   searchlist = []
-   
-   try:
-      r.login('Porygon-Bot', 'password')
-      print 'Logged in succesfully\n'
-   except:
-      print 'Invalid username or password\n'
-
-   for message in subreddit.get_mod_mail(limit=10000):
-      if str(message.author) == username:
-         listitem = 'http://en.reddit.com/message/messages/' + message.id
-         print(listitem)
-         searchlist.append(listitem)
-
-   searchresults = ', '.join(searchlist)
-   
-   return searchresults
-
-
-
-
-
-
 
