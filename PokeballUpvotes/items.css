@@ -1,3 +1,5 @@
+/* Pokeball upvote css for reddit*/
+
 .arrow.up:after{
 	content: "" !important;
         width: 15px !important;
