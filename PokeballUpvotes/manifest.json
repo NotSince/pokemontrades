@@ -1,0 +1,22 @@
+{
+  "name": "PokeballUpvotes",
+  "description": "Upvotes for all!",
+  "version": "1.0",
+
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  
+  "content_scripts": [
+	{
+	  "matches": ["http://*.reddit.com/*"],
+	  "exclude_matches": ["http://*.reddit.com/r/dogecoin/*"],
+      "css": ["items.css"]
+      
+    }
+  ],
+
+
+  "manifest_version": 2
+}
