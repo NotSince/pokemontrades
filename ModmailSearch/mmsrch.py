@@ -28,7 +28,7 @@ def log_in():
 def check_comments(srch):
         for message in subreddit.get_mod_mail(limit=10000):
                if str(message.author) == srch: #this username is who it searches for...
-                   print('Author: ' + str(message.author) + "  ")
+                   print('Author: ' + str(message.author) + "   Subject: " + message.subject + "  ")
                    print('http://en.reddit.com/message/messages/' + message.id + "  ")
 
 def main():
