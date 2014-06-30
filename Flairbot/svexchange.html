@@ -1,0 +1,430 @@
+<style type="text/css">
+
+/*Colours:
+	Blue = #4A9DA5
+	Pink = #D14353
+	White = #F8ECF0
+*/
+body{
+	text-align: center;
+	background: #F8ECF0;
+	/*background: #e5e5e5;*/
+	font-family:"verdana";
+	font-weight:bold;
+	color: #4A9DA5;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1{
+	font-family:"verdana";
+	font-size:20px;	
+}
+
+li{
+	text-align: left;
+}
+
+#notes{
+	width:600px;
+	margin-left: auto ;
+	margin-right: auto ;
+}
+
+form{
+	width:500px;
+	display: inline-block;
+	margin-top: 100px;
+}
+
+select{
+	width: 100px;
+	font-weight:bold;
+}
+
+.input{
+	color: #4A9DA5;
+	font-weight:bold;
+	margin-left: 0px;
+}
+
+.input.fc{
+	width: 156px;
+}
+
+.input.ign{
+	width: 100px;
+}
+
+.input.dropdown{
+	width: 50px;
+}
+
+label { 
+    display: inline-block; 
+    width: 250px; 
+    text-align: left;
+	font-size: 14px;	
+}
+
+.button{
+	background: #4A9DA5;  /*#3b3b3b;*/
+	color: white;
+	padding: 3px 0;
+	text-align: center;
+	width: 450px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.button.slide{
+	margin-left: auto ;
+	margin-right: auto ;
+}
+
+a:link {
+	color:#F8ECF0;
+}     /* unvisited link */
+
+a:visited {
+	color:#F8ECF0;
+}  /* visited link */
+
+a:hover {
+	color:#4A9DA5;
+}  /* mouse over link */
+
+a:active {
+	color:#4A9DA5;
+}  /* selected link */
+
+.block {
+	width: 100%;
+	height: 30px;
+	border:1px solid #D14353;
+	background-color: #D14353;
+}
+
+.bottom.block {
+	bottom: 0px;
+	position: fixed;
+	text-align: right;
+	color: #F8ECF0;
+	font-size: 10px;
+	margin-right: 10px;
+}
+
+.plus.image{
+	height: 10px;
+	width: 10px;
+}
+
+</style>
+
+
+<body>
+
+	<!--<h1>Set your flair for <a href="http://www.reddit.com/r/pokemontrades/">/r/pokemontrades</a></h1>-->
+	
+	<div class="block"div>
+	
+	<form>
+
+		<div id="ign">
+			<label for="user">In Game Name</label>
+			<input type="text" id="user" value="IGN" class="input ign">
+			<select size="1" id="gametype" class="input dropdown">
+				<option selected="selected">-</option>
+				<option>X</option>
+				<option>Y</option>
+			</select>
+			<img id="addign" src="plus.png" alt="Plus" class="image plus">
+		</div>
+
+		<div id="secondign">
+			<label for="user2" id="user2label">Second In Game Name</label>
+			<input type="text" id="user2" value="IGN" class="input ign">
+			<select size="1" id="gametype2" class="input dropdown">
+				<option selected="selected">-</option>
+				<option>X</option>
+				<option>Y</option>
+			</select>
+			<img width="10px">
+		</div>
+		
+		<div id="friendcode">
+			<label for="fc">Friend Code (Keep format)</label>
+			<input type="text" id="fc" value="0000-0000-0000" class="input fc">
+			<img id="addfc" src="plus.png" alt="Plus" class="image plus">
+		</div>
+		
+		<div id="secondfriendcode">
+			<label for="fc2">Friend Code (Keep format)</label>
+			<input type="text" id="fc2" value="0000-0000-0000" class="input fc">
+			<img width="10px">
+		</div>
+		
+		<div id="tsvdiv">
+			<label for="tsv">Trainer Shiny Value</label>
+			<input type="text" id="tsv" value="0000" class="input fc">
+			<img id="addtsv" src="plus.png" alt="Plus" class="image plus">
+		</div>
+		
+		<div id="tsvdiv2">
+			<label for="tsv2">Trainer Shiny Value 2</label>
+			<input type="text" id="tsv2" value="0000" class="input fc">
+			<img width="10px">
+
+			<label for="tsv3">Trainer Shiny Value 3</label>
+			<input type="text" id="tsv3" value="0000" class="input fc">
+			<img width="10px">
+
+			<label for="tsv4">Trainer Shiny Value 4</label>
+			<input type="text" id="tsv4" value="0000" class="input fc">
+			<img width="10px">
+
+			<label for="tsv5">Trainer Shiny Value 5</label>
+			<input type="text" id="tsv5" value="0000" class="input fc">
+			<img width="10px">
+
+			<label for="tsv6">Trainer Shiny Value 6</label>
+			<input type="text" id="tsv6" value="0000" class="input fc">
+			<img width="10px">
+		</div>
+		
+		<div id="lengthcheck">0</div>
+
+	<br/>
+	<div id="button" onclick="flairsend()" class="button slide">Send</div>
+	<br/>
+	
+	
+	</form>
+
+<p id="message"></p>
+
+<br/>
+
+<div id="notesbutton" class="button slide">Additional Information</div>
+<div id="notes" >
+	<ul>
+		<li>The bot can take up to 10 minutes to update your flair</li>
+		<li>Your In Game Name must be 12 characters or less</li>
+		<li>You must keep the format of the Friend Code above</li>
+		<li>When you click 'send' a pre-formatted reddit message will open in a new tab</li>
+		<li>Send the message without editing it at all</li>
+	</ul>
+</div>
+
+<br/>
+
+
+<div class="bottom block">Maintained by <a href="http://www.reddit.com/message/compose/?to=NotSinceYesterday">/u/NotSinceYesterday</a>    .</div>
+
+<script type="text/javascript" src="http://static.tumblr.com/mx1vyag/Uc9n31rj4/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+
+$(function()
+{
+    /* all your jquery code goes here */
+    
+    /* e.g., take element with class .something and change some of its style attributes */
+	
+	
+	
+	
+	
+	$secondign_input = $("#secondign"); 
+	$secondign_input.hide();
+	$secondfc_input = $("#secondfriendcode"); 
+	$secondfc_input.hide();
+	$tsv2_input = $("#tsvdiv2"); 
+	$tsv2_input.hide();
+	$notes = $("#notes"); 
+	$notes.hide();
+	$addign = $("#addign");
+	$addign.click(function() { $secondign_input.slideToggle();});
+	$addfc = $("#addfc");
+	$addfc.click(function() { $secondfc_input.slideToggle();});
+	$addtsv = $("#addtsv");
+	$addtsv.click(function() { $tsv2_input.slideToggle();});
+	$notesbutton = $("#notesbutton");
+	$notesbutton.click(function() { $notes.slideToggle("slow");});
+	
+	$('input').each(function () {
+    $(this).change(function () {
+	
+	user = document.getElementById("user").value;
+	user2 = document.getElementById("user2").value;
+	fc 	 = document.getElementById("fc").value;
+	fc2 	 = document.getElementById("fc2").value;
+	tsv = document.getElementById("tsv").value;
+	tsv2 = document.getElementById("tsv2").value;
+	tsv3 = document.getElementById("tsv3").value;
+	tsv4 = document.getElementById("tsv4").value;
+	tsv5 = document.getElementById("tsv5").value;
+	tsv6 = document.getElementById("tsv6").value;
+	type = document.getElementById("gametype").value;
+	type2 = document.getElementById("gametype2").value;
+	friendcode2 = ""
+	ign2 = ""
+	sv2 = ""
+	sv3 = ""
+	sv4 = ""
+	sv5 = ""
+	sv6 = ""
+	
+
+	if (user2 != "IGN"){
+		ign2 = ", " + user2
+		if (type2 != "-"){
+		ign2 = ign2 + " (" + type2 + ")"
+		}
+	}
+	
+	if (type != "-"){
+		user = user + " (" + type + ")"
+	}
+	
+	if (fc2 != "0000-0000-0000"){
+		friendcode2 = ", " + fc2
+	}
+	
+	if (tsv2 != "0000"){
+		sv2 = ", " + tsv2
+	}
+	
+	if (tsv3 != "0000"){
+		sv3 = ", " + tsv3
+	}
+	
+	if (tsv4 != "0000"){
+		sv4 = ", " + tsv4
+	}
+	
+	if (tsv5 != "0000"){
+		sv5 = ", " + tsv5
+	}
+	
+	if (tsv6 != "0000"){
+		sv6 = ", " + tsv6
+	}
+		
+	msg = fc + friendcode2 + " || " + user + ign2 + " || " + tsv + sv2 + sv3 + sv4 + sv5 + sv6
+		len = msg.length
+		$( "#lengthcheck" ).text( len );
+    });
+});
+});
+
+
+function flairsend(){
+	user = document.getElementById("user").value;
+	user2 = document.getElementById("user2").value;
+	fc 	 = document.getElementById("fc").value;
+	fc2 	 = document.getElementById("fc2").value;
+	tsv = document.getElementById("tsv").value;
+	tsv2 = document.getElementById("tsv2").value;
+	tsv3 = document.getElementById("tsv3").value;
+	tsv4 = document.getElementById("tsv4").value;
+	tsv5 = document.getElementById("tsv5").value;
+	tsv6 = document.getElementById("tsv6").value;
+	type = document.getElementById("gametype").value;
+	type2 = document.getElementById("gametype2").value;
+	friendcode2 = ""
+	ign2 = ""
+	sv2 = ""
+	sv3 = ""
+	sv4 = ""
+	sv5 = ""
+	sv6 = ""
+	
+	if (fc.length != 14)
+		{
+		window.alert("You totes messed up the Friend Code");
+	    return;
+		}
+	
+	if (fc2.length != 14)
+		{
+		window.alert("You totes messed up the second Friend Code");
+	    return;
+		}
+		
+	if (user.length > 12)
+		{
+		window.alert("Your IGN is too long");
+	    return;
+		}
+		
+	if (user2.length > 12)
+		{
+		window.alert("Your second IGN is too long");
+	    return;
+		}
+	
+	if (user == "IGN")
+		{
+		window.alert("Your IGN is not IGN");
+		return;
+		}
+
+	if (user2 != "IGN"){
+		ign2 = ", " + user2
+		if (type2 != "-"){
+		ign2 = ign2 + " (" + type2 + ")"
+		}
+	}
+	
+	if (type != "-"){
+		user = user + " (" + type + ")"
+	}
+	
+	if (fc2 != "0000-0000-0000"){
+		friendcode2 = ", " + fc2
+	}
+	
+	if (tsv == "0000"){
+		window.alert("Please fill in your TSV");
+		return;
+	}
+	
+	if (tsv.length != 4){
+		window.alert("Please ensure your TSV is 4 characters");
+		return;
+	}
+	
+	if (tsv2 != "0000" & tsv2.length == 4){
+		sv2 = ", " + tsv2
+	}
+	
+	if (tsv3 != "0000" & tsv3.length == 4){
+		sv3 = ", " + tsv3
+	}
+	
+	if (tsv4 != "0000" & tsv4.length == 4){
+		sv4 = ", " + tsv4
+	}
+	
+	if (tsv5 != "0000" & tsv5.length == 4){
+		sv5 = ", " + tsv5
+	}
+	
+	if (tsv6 != "0000" & tsv6.length == 4){
+		sv6 = ", " + tsv6
+	}
+		
+	msg = fc + friendcode2 + " || " + user + ign2 + " || " + tsv + sv2 + sv3 + sv4 + sv5 + sv6
+	
+	if (msg.length > 64)
+		{
+		window.alert("Your flair can contain a maximum of 64 characters. Please remove elements until you do not excede 64.");
+	    return;
+		}
+	
+	document.getElementById("message").innerHTML=msg;
+	
+	window.open("http://www.reddit.com/message/compose/?to=Porygon2-Bot&subject=SVFlair&message="+msg);
+}
+
+</script>
